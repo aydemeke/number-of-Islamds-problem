@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="input-container col-xs-12">
+    <label>Please enter bitmap size:</label>
+    <div class="rowInput">
+      <input type="number" min="1" class="form-control" placeholder="bitmap row" [(ngModel)]="matrixRow">
+    </div>
+    <div class="colInput">
+      <input type="number" min="1" class="form-control" placeholder="bitmap column" [(ngModel)]="matrixColumn">
+    </div>
+  </div>
+  <div class="btn-container">
+    <button class="submit-btn btn-primary"
+            (click)="onSaveInputData()"
+            [disabled]="!matrixRow || !matrixColumn"
+            routerLink="/result" routerLinkActive="active">
+      submit
+    </button>
+    <button class="random-btn btn-primary"
+            (click)="onRandomizeMatrix()"
+            routerLink="/result"
+            routerLinkActive="active">
+      randomize
+    </button>
+  </div>
+</div>
+<div>
+</div>

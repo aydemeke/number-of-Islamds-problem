@@ -1,0 +1,31 @@
+<div class="container">
+  <div>
+    <table>
+      <tr *ngFor="let row of matrix">
+        <td *ngFor="let item of row" [ngStyle]="item == 2? {'background-color': 'black', 'color': 'black'} : {'background-color': 'white'}">
+          <div class="item">{{item}}</div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <br>
+
+  <!--solve-->
+  <div class="solve-container">
+    <h3 class="result-txt" *ngIf="count > 0">FOUND {{count}} ISLANDS!</h3>
+    <h3 *ngIf="count === 0">Please click on solve button to get result</h3>
+    <button
+      type="button"
+      id="solveButton"
+      class="btn btn-primary"
+      (click)="onSolveClick()"
+      [hidden]="isSolveClicked"
+      [disabled]="!matrix">SOLVE</button>
+    <button
+      type="button"
+      class="restartButton btn-block"
+      routerLink="/userInput"
+      routerLinkActive="active"
+      [hidden]="!isSolveClicked">< RESTART</button>
+  </div>
+</div>
